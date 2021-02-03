@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  </head>
+    <script>
+      $(function () {
+
+        $('form').on('submit', function (e) {
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'test.php',
+            data: $('form').serialize(),
+            success: function () {
+                      Swal.fire(
+                'Thank You!',
+                'We will contact you!',
+                'success'
+              );
+            }
+          });
+
+        });
+
+      });
+     </script>
+
+
+  <body>
+    <form>
+      <input name="first_name" type="text"><br>
+      <input name="last_name" type="text" ><br>
+      <input name="submit" type="submit" value="Submit">
+    </form>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+      );
+      </script> -->
+
+  </body>
+</html>
